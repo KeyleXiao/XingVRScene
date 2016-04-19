@@ -1,0 +1,174 @@
+{
+"type1" : {
+"Name" : "格斗类",
+"Length" : 5,
+"sub1" : {
+"Name" : "武术",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "跆拳道",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "空手道",
+"Length" : 0
+},
+"sub4" : {
+"Name" : "泰拳",
+"Length" : 0
+},
+"sub5" : {
+"Name" : "拳击",
+"Length" : 0
+}
+},
+"type2" : {
+"Name" : "大球类",
+"Length" : 7,
+"sub1" : {
+"Name" : "足球",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "篮球",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "排球",
+"Length" : 0
+},
+"sub4" : {
+"Name" : "水球",
+"Length" : 0
+},
+"sub5" : {
+"Name" : "棒球",
+"Length" : 0
+},
+"sub6" : {
+"Name" : "橄榄球",
+"Length" : 0
+},
+"sub7" : {
+"Name" : "冰球",
+"Length" : 0
+}
+},
+"type3" : {
+"Name" : "舞蹈类",
+"Length" : 5,
+"sub1" : {
+"Name" : "现代舞",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "拉丁舞",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "街舞",
+"Length" : 0
+},
+"sub4" : {
+"Name" : "芭蕾",
+"Length" : 0
+},
+"sub5" : {
+"Name" : "钢管舞",
+"Length" : 0
+}
+},
+"type4" : {
+"Name" : "小球类",
+"Length" : 7,
+"sub1" : {
+"Name" : "羽毛球",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "保龄球",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "乒乓球",
+"Length" : 0
+},
+"sub4" : {
+"Name" : "高尔夫",
+"Length" : 0
+},
+"sub5" : {
+"Name" : "壁球",
+"Length" : 0
+},
+"sub6" : {
+"Name" : "桌球",
+"Length" : 0
+},
+"sub7" : {
+"Name" : "清排球",
+"Length" : 0
+}
+},
+"type5" : {
+"Name" : "健身类",
+"Length" : 3,
+"sub1" : {
+"Name" : "健身",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "瑜伽",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "游泳",
+"Length" : 0
+}
+},
+"type6" : {
+"Name" : "儿童类",
+"Length" : 3,
+"sub1" : {
+"Name" : "欢乐天地",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "室外游乐",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "充气城堡",
+"Length" : 0
+}
+},
+"type7" : {
+"Name" : "其他类",
+"Length" : 6,
+"sub1" : {
+"Name" : "射箭",
+"Length" : 1
+},
+"sub2" : {
+"Name" : "攀岩",
+"Length" : 0
+},
+"sub3" : {
+"Name" : "滑冰",
+"Length" : 0
+},
+"sub4" : {
+"Name" : "击剑",
+"Length" : 0
+},
+"sub5" : {
+"Name" : "极限运动",
+"Length" : 0
+},
+"sub6" : {
+"Name" : "沙壶球",
+"Length" : 0
+}
+}
+}

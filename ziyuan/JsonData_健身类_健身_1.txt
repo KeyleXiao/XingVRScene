@@ -1,0 +1,140 @@
+{
+"StudioData" : {
+"StudioType" : "健身类",
+"Subdivision" : "健身",
+"StudioID" : 5,
+"StudioName" : "波恩健身",
+"StudioLogo" : "/Volumes/EX/UnityProject/XingVRScene/AllTestData/健身房LOGO/波恩LOGO_03.png",
+"StudioInfo" : {
+"Info" : "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",
+"Phone" : 13900000000,
+"isParking" : true,
+"isWifi" : true,
+"OpenTime" : "6点-21点",
+"Star" : 5,
+"Visit" : 100,
+"Buy" : 100,
+"Address" : {
+"Province" : "上海",
+"City" : "上海市",
+"Area" : "徐汇区",
+"Road" : "漕溪路",
+"No" : 1000,
+"Coordinate" : {
+"Longitude" : 100,
+"Latitude" : 100
+}
+}
+},
+"VRData" : {
+"Data1" : {
+"RoomName" : "Room1",
+"VRViewPhoto" : "http://www.xingfit.com/app/studio_1/panorama/1.pic_hd.jpg",
+"Advertising" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Preview" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Exit" : {
+"Exit1" : {
+"PositionAngle" : 50,
+"GotoScene" : 0
+},
+"Exit2" : {
+"PositionAngle" : 180,
+"GotoScene" : 0
+}
+}
+},
+"Data2" : {
+"RoomName" : "Room1",
+"VRViewPhoto" : "http://www.xingfit.com/app/studio_1/panorama/2.pic_hd.jpg",
+"Advertising" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Preview" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Exit" : {
+"Exit1" : {
+"PositionAngle" : 50,
+"GotoScene" : 0
+},
+"Exit2" : {
+"PositionAngle" : 180,
+"GotoScene" : 0
+}
+}
+}
+},
+"Activity" : {
+"Preview" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Title" : "活动1",
+"Date" : "2016年1月1日",
+"Url" : "https://www.baidu.com"
+},
+"ManagerRecommend" : {
+"Video" : "http://wq.xingfit.com/voute/video/Boom.mp4",
+"Info" : "TestTestTestTestTestTestTestTestTestTestTest",
+"Photo" : {
+"Photo1" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+"Photo2" : "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"
+}
+},
+"CoachData" : {
+"Coach1" : {
+"Name" : "沈浩",
+"Icon" : "http://www.xingfit.com/app/studio_1/coach/icon/coach_1.png",
+"Info" : "Test Test Test Test Test Test Test Test",
+"Photo" : "http://www.xingfit.com/app/studio_1/coach/photo/coach_1.png",
+"BuyUrl" : "http://m.dianping.com/mobile/event/63868",
+"Ability" : {
+"Cost" : 100,
+"Stamina" : 10,
+"Speed" : 10,
+"Patient" : 10,
+"Experience" : 10,
+"Professional" : 10
+}
+},
+"Coach2" : {
+"Name" : "李斌超",
+"Icon" : "http://www.xingfit.com/app/studio_1/coach/icon/coach_2.png",
+"Info" : "Test Test Test Test Test Test Test Test",
+"Photo" : "http://www.xingfit.com/app/studio_1/coach/photo/coach_2.png",
+"BuyUrl" : "http://m.dianping.com/mobile/event/63868",
+"Ability" : {
+"Cost" : 100,
+"Stamina" : 10,
+"Speed" : 10,
+"Patient" : 10,
+"Experience" : 10,
+"Professional" : 10
+}
+},
+"Coach3" : {
+"Name" : "刘静",
+"Icon" : "http://www.xingfit.com/app/studio_1/coach/icon/coach_3.png",
+"Info" : "Test Test Test Test Test Test Test Test",
+"Photo" : "http://www.xingfit.com/app/studio_1/coach/photo/coach_3.png",
+"BuyUrl" : "http://m.dianping.com/mobile/event/63868",
+"Ability" : {
+"Cost" : 100,
+"Stamina" : 10,
+"Speed" : 10,
+"Patient" : 10,
+"Experience" : 10,
+"Professional" : 10
+}
+},
+"Coach4" : {
+"Name" : "罗龙",
+"Icon" : "http://www.xingfit.com/app/studio_1/coach/icon/coach_4.png",
+"Info" : "Test Test Test Test Test Test Test Test",
+"Photo" : "http://www.xingfit.com/app/studio_1/coach/photo/coach_4.png",
+"BuyUrl" : "http://m.dianping.com/mobile/event/63868",
+"Ability" : {
+"Cost" : 100,
+"Stamina" : 10,
+"Speed" : 10,
+"Patient" : 10,
+"Experience" : 10,
+"Professional" : 10
+}
+}
+}
+}
+}

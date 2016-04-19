@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="WeChat_1457529313" size="1024.000000 945.435608" />
+    <ImageTarget name="fangwu2" size="1024.000000 1038.400024" />
+    <ImageTarget name="jinmao2" size="1024.000000 1056.935669" />
+  </Tracking>
+</QCARConfig>
