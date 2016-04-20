@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-
+using LitJson;
 public class AppDatas
 {
     public static Dictionary<string, string[]> JsonConfig
@@ -10,8 +10,18 @@ public class AppDatas
             return _JsonConfig;
         }
     }
-    static Dictionary<string, string[]> _JsonConfig;
+    public static JsonData JsonDataList
+    {
+        get
+        {
+            return _jsondataList;
+        }
+    }
+    public static int? IndexOfSelected;
     
+    static Dictionary<string, string[]> _JsonConfig;
+    static JsonData _jsondataList;
+
 
     public static void InitJsonConfig(string strData)
     {
@@ -29,8 +39,19 @@ public class AppDatas
         }
         catch(System.Exception ex)
         {
-            Debug.Log(ex.Message);
+            Error.instance.ThrowError(ex.Message, () => Application.Quit());
         }
     }
 
+    public static void InitJsonDataList(string strData)
+    {
+        try
+        {
+            _jsondataList = JsonMapper.ToObject(strData);
+        }
+        catch (System.Exception ex)
+        {
+            Error.instance.ThrowError(ex.Message, () => Application.Quit());
+        }
+    }
 }

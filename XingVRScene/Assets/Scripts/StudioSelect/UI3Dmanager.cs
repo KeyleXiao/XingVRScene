@@ -44,7 +44,7 @@ public class UI3Dmanager : MonoBehaviour {
 			tmpPoint.transform.position = tmpPoint.transform.position + cardPositionOffset * i;
 			tmpPoint.transform.rotation = Quaternion.Euler (new Vector3 (0, 0, cardPositionRotation * i));
 			positionList.Add (tmpPoint.GetComponent<RectTransform> ());
-		}
+		}//初始化点位置
 	}
 
 	public void InitailCardList()
@@ -67,14 +67,17 @@ public class UI3Dmanager : MonoBehaviour {
 				tmpObj.GetComponent<CardManager> ().InitialData ();
 			}
 		}
-		CardManager tmp;
-		int max = allCardQueue.Count / 2 ;
-		for (int n = 0; n < max; n++) {
-			tmp = allCardQueue [n];
-			allCardQueue [n] = allCardQueue [allCardQueue.Count - n - 1];
-			allCardQueue [allCardQueue.Count - n - 1] = tmp;
-		}
-		ChangeCardShow ();
+        //以上初始化卡片信息
+
+        CardManager tmp;
+        int max = allCardQueue.Count / 2;
+        for (int n = 0; n < max; n++)
+        {
+            tmp = allCardQueue[n];
+            allCardQueue[n] = allCardQueue[allCardQueue.Count - n - 1];
+            allCardQueue[allCardQueue.Count - n - 1] = tmp;
+        }
+        ChangeCardShow ();
 //		for (int i = 0; i < positionList.Count; i++) {
 //			GameObject tmpCard = Instantiate (Resources.Load ("CardUI") as GameObject, Vector3.zero, Quaternion.identity) as GameObject;
 //			tmpCard.transform.SetParent (cardUIContainer, false);
