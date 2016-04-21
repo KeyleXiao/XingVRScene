@@ -24,19 +24,33 @@ public class TouchZoomManager : MonoBehaviour,IDragHandler,IPointerDownHandler,I
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		if (initMousePositionX > Input.mousePosition.x) {
-			Debug.Log ("Left");
-			UI3Dmanager.instance.CardChangeNext ();
-		}
-		else if (initMousePositionX < Input.mousePosition.x) {
-			Debug.Log ("Right");
-			UI3Dmanager.instance.CardChangeBack ();
-		}
-		if(Mathf.Abs(initMousePositionX - Input.mousePosition.x) < 1.0f)
-		{
-			UI3Dmanager.instance.ChangeScene ();
-		}
-	}
+        //if (initMousePositionX > Input.mousePosition.x) {
+        //	Debug.Log ("Left");
+        //	UI3Dmanager.instance.CardChangeNext ();
+        //}
+        //else if (initMousePositionX < Input.mousePosition.x) {
+        //	Debug.Log ("Right");
+        //	UI3Dmanager.instance.CardChangeBack ();
+        //}
+        if (Mathf.Abs(initMousePositionX - Input.mousePosition.x) < 1.0f)
+        {
+            AppDatas.IndexOfSelected = ScrollView3dUI.instance._cardQueue[1].IndexOfInfo;
+            Debug.Log(AppDatas.IndexOfSelected);
+            return;
+        }
+        if (initMousePositionX > Input.mousePosition.x)
+        {
+            Debug.Log("Left");
+            ScrollView3dUI.instance.ScrollDown();
+        }
+        else if (initMousePositionX < Input.mousePosition.x)
+        {
+            Debug.Log("Right");
+            ScrollView3dUI.instance.ScrollUp();
+
+        }
+
+    }
 
 
 }

@@ -745,12 +745,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &547519450 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11410646, guid: 1013751e2c08549be8b9d135a1ad2473,
-    type: 2}
-  m_PrefabInternal: {fileID: 1332960322}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &558655285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,7 +2101,6 @@ GameObject:
   - 223: {fileID: 1517165813}
   - 114: {fileID: 1517165812}
   - 114: {fileID: 1517165811}
-  - 114: {fileID: 1517165815}
   - 114: {fileID: 1517165816}
   m_Layer: 5
   m_Name: Canvas3D
@@ -2193,63 +2186,6 @@ RectTransform:
   m_AnchoredPosition: {x: 156.5, y: 250}
   m_SizeDelta: {x: 313, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1517165815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1517165810}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93bef70ed45b94a3e831c5f3c23f347a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionList: []
-  allCardIcon: []
-  cardUIContainer: {fileID: 366846867}
-  allCard: []
-  allCardQueue: []
-  positionL: {fileID: 188299754}
-  positionR: {fileID: 2110923900}
-  nowIndex: 0
-  cardPositionNum: 10
-  allCardNum: 10
-  cardPositionOffset: {x: 0, y: 15, z: 20}
-  cardPositionRotation: 5
-  allRandomColor:
-  - {r: 0.97794116, g: 0.7909818, b: 0.7909818, a: 1}
-  - {r: 0.85801214, g: 1, b: 0.85294116, a: 1}
-  - {r: 1, g: 0.99371195, b: 0.77205884, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.77205884, b: 0.97484785, a: 1}
-  - {r: 1, g: 0.87109536, b: 0.77205884, a: 1}
-  - {r: 0.77205884, g: 1, b: 0.93397564, a: 1}
-  - {r: 0.77991885, g: 0.77205884, b: 1, a: 1}
-  allLogo:
-  - {fileID: 21300000, guid: a6e128026f8a24f2eb286460037fc6f5, type: 3}
-  - {fileID: 21300000, guid: f938b1a527794431ca5af6f31c679b4b, type: 3}
-  - {fileID: 21300000, guid: b111ee017ac9d40c9a2519ebf06afbb9, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  allCardName:
-  - "\u6CE2\u6069\u5065\u8EAB\u5DE5\u4F5C\u5BA4"
-  - "JQ\u5065\u8EAB\u5DE5\u4F5C\u5BA4"
-  - "IFB\u5065\u8EAB\u5DE5\u4F5C\u5BA4"
-  - DEMO
-  - DEMO
-  - DEMO
-  - DEMO
-  - DEMO
-  - DEMO
-  - DEMO
-  loading: {fileID: 1332960323}
-  loadingProgress: {fileID: 547519450}
-  cardShowNumber: 8
 --- !u!114 &1517165816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,6 +2198,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardUIContainer: {fileID: 366846867}
+  cardPosOfEnd: {fileID: 188299754}
+  positionList: []
+  _cardQueue: []
 --- !u!1 &1533441059
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,21 @@ public class AppDatas
         }
     }
     public static int? IndexOfSelected;
-    
+    public static JsonData DataSelected
+    {
+        get
+        {
+            if (IndexOfSelected.HasValue)
+            {
+                return JsonDataList[IndexOfSelected.Value];
+            }
+            else
+            {
+                Error.instance.ThrowError("没有选择数据", () => Application.Quit());
+                return null;
+            }
+        }
+    }
     static Dictionary<string, string[]> _JsonConfig;
     static JsonData _jsondataList;
 
