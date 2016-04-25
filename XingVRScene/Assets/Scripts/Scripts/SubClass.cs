@@ -35,8 +35,11 @@ public class SubClass : MonoBehaviour {
             Text text = button.GetComponentInChildren<Text>();
             text.text = item;
             button.transform.parent = m_rectTransform.transform;
+            button.GetComponent<Button>().onClick.AddListener(() => NetSystem.instance.GetSubData(text.text));
+            //button.GetComponent<Button>().onClick.AddListener(() => Debug.Log(text.text));
+
         }
-	}
+    }
 	
 
 
