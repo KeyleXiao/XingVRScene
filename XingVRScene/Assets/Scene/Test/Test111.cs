@@ -20,7 +20,7 @@ public class Test111 : MonoBehaviour
 
         //InitializeSubClass(new string[] { "hah", "sss", "hah", "sss", "hah", "sss", "hah", "sss", "hah", "sss" }, go.transform);
 
-        string sData = System.IO.File.ReadAllText(Application.dataPath + "/1.txt");
+        string sData = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/JsonConfig.txt");
         AppDatas.InitJsonConfig(sData);
 
         // Error.instance.ThrowError("error", () => Application.Quit());

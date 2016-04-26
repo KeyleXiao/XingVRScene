@@ -43,17 +43,25 @@ public class AppDatas
         {
             _JsonConfig = new Dictionary<string, string[]>();
 
-            LitJson.JsonData m_JsonData = LitJson.JsonMapper.ToObject(strData);
+            JsonData m_JsonData = LitJson.JsonMapper.ToObject(strData);
             foreach (var m_key in m_JsonData.Keys)
             {
 
-                string[] m_strArrayNames = LitJson.JsonMapper.ToObject<string[]>(m_JsonData[m_key].ToJson());
-                JsonConfig.Add(m_key, m_strArrayNames);
+                //string[] m_strArrayNames = LitJson.JsonMapper.ToObject<string[]>(m_JsonData[m_key].ToJson());
+                //JsonConfig.Add(m_key, m_strArrayNames);
+                string[] m_strArrayNames = new string[(int)m_JsonData[m_key]["Length"]];
+                
+                for (int i = 1; i <= m_strArrayNames.Length; i++)
+                {
+                    m_strArrayNames[i - 1] = (string)m_JsonData[m_key]["sub" + i.ToString()]["Name"];
+                }
+                JsonConfig.Add((string)m_JsonData[m_key]["Name"], m_strArrayNames);
             }
         }
         catch(System.Exception ex)
         {
             Error.instance.ThrowError(ex.Message, () => Application.Quit());
+            Debug.Log(ex.Message);
         }
     }
 

@@ -21,7 +21,7 @@ public class NetSystem : MonoBehaviour
 	
     public void GetJsonConfig()
     {
-
+        StartCoroutine(DownloadJsonConfig());
     }
 
     IEnumerator DownloadJsonConfig()
@@ -33,12 +33,16 @@ public class NetSystem : MonoBehaviour
             JsonData m_jd = JsonMapper.ToObject(www.text);
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
-
+                AppDatas.InitJsonConfig(m_jd["data"].ToJson());
+            }
+            else
+            {
+                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetJsonConfig());
             }
         }
         else
         {
-            Debug.Log(www.error);
+            Error.instance.ThrowError("网络错误" + www.error, () => GetJsonConfig());
         }
     }
 
@@ -49,8 +53,8 @@ public class NetSystem : MonoBehaviour
     IEnumerator DownloadSubData(string __type)
     {
         WWWForm m_form = new WWWForm();
-        m_form.AddField("lat", 50);
-        m_form.AddField("lng", 50);
+        m_form.AddField("lat", OpenGPS.lat.ToString());
+        m_form.AddField("lng", OpenGPS.lng.ToString());
         m_form.AddField("type", __type);
         WWW m_www = new WWW(_subDataUrl, m_form);
         yield return m_www;
@@ -59,16 +63,16 @@ public class NetSystem : MonoBehaviour
             JsonData m_jd = JsonMapper.ToObject(m_www.text);
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
-                Debug.Log(m_www.text);
+                AppDatas.InitJsonDataList(m_jd["data"].ToJson());
             }
             else
             {
-
+                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetSubData(__type));
             }
         }
         else
         {
-            Debug.Log(m_www.error);
+            Error.instance.ThrowError("网络错误" + m_www.error, () => GetSubData(__type));
         }
     }
 }
