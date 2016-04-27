@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -259,7 +259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u540D\u5B57"
+  m_Text: 
 --- !u!114 &11442522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -312,8 +312,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bbfe55d10d519412a8fb6aa77dce0b72, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 1785733b0ff1f2845963430d3bd02d3e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -384,8 +384,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: -9.7858}
-  m_SizeDelta: {x: 174.1, y: 23.872}
+  m_AnchoredPosition: {x: 0.000018119812, y: 0.0000104904175}
+  m_SizeDelta: {x: 246.97, y: 65.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22413222
 RectTransform:
@@ -401,8 +401,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.3, y: -28.7}
-  m_SizeDelta: {x: 30, y: 13.4}
+  m_AnchoredPosition: {x: -75.1, y: -81.7}
+  m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22427564
 RectTransform:
@@ -418,8 +418,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7, y: -28.7}
-  m_SizeDelta: {x: 30, y: 13.4}
+  m_AnchoredPosition: {x: 0.000020503998, y: -81.700005}
+  m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22431508
 RectTransform:
@@ -433,10 +433,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22443228}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000030994415, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22435746
 RectTransform:
@@ -452,8 +452,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.7, y: -28.7}
-  m_SizeDelta: {x: 30, y: 13.4}
+  m_AnchoredPosition: {x: 79.6, y: -81.7}
+  m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22443228
 RectTransform:
@@ -476,7 +476,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22471942
 RectTransform:
@@ -492,8 +492,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000095367, y: 18.275013}
-  m_SizeDelta: {x: 48.7, y: 36.55}
+  m_AnchoredPosition: {x: -0.0000038147, y: 66.2}
+  m_SizeDelta: {x: 101.2, y: 90.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:

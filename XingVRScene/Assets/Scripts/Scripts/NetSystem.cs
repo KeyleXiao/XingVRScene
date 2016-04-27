@@ -67,6 +67,7 @@ public class NetSystem : MonoBehaviour
             }
             else
             {
+                Debug.Log((string)m_jd[_jsonStatusKeyName]);
                 Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetSubData(__type));
             }
         }
