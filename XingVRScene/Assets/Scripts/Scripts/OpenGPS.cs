@@ -6,8 +6,13 @@ public class OpenGPS : MonoBehaviour
     public static float lat, lng;
     IEnumerator Start()
     {
-#if UNITY_IOS || UNITY_ANDROID
-        if (Application.internetReachability == NetworkReachability.NotReachable)
+        yield return null;
+#if  UNITY_EDITOR
+
+        lat = 50;
+        lng = 50;
+#elif UNITY_IOS || UNITY_ANDROID
+           if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             Error.instance.ThrowError("无法连接到网络，请打开网络连接", () => Application.Quit());
         }
@@ -47,14 +52,19 @@ public class OpenGPS : MonoBehaviour
                 lat = Input.location.lastData.latitude;
                 lng = Input.location.lastData.longitude;
             }
-            Input.location.Stop();
-#elif UNITY_EDITOR
-                   lat=50;
-                   lng=50;
-#endif
-
-
+            Input.location.Stop();   
         }
+             
+#endif
+        NetSystem.instance.GetAllData();
+        float i = 0;
+        while (i < 1)
+        {
+            i += 50 * Time.deltaTime;
+            Loading.instance.SetLoadingValue(i);
+            yield return null;
+        }
+
     }
 
 

@@ -16,11 +16,13 @@ public class ScrollView3dUI : MonoBehaviour
     Vector3 _cardPositionOffset = new Vector3(0, 15, 20);
     float _cardPositionRotation = 5;
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         instance = this;
         InitialCardPosition();
         InitailCardList();
+        ChangeAlpha();
+
     }
 
 
@@ -62,18 +64,27 @@ public class ScrollView3dUI : MonoBehaviour
             GameObject m_tmpCardObj = Instantiate(Resources.Load("NewCardUI") as GameObject, Vector3.zero, Quaternion.identity) as GameObject;
             CardUI m_cardUICom = m_tmpCardObj.GetComponent<CardUI>();
             m_cardUICom.InitCardPosition(i);
-            m_cardUICom.InitCardInfo(i);
             _cardQueue.Add(m_cardUICom);
             m_tmpCardObj.transform.SetParent(cardUIContainer, false);
             m_cardUICom.transform.SetAsFirstSibling();
+        }
+        for (int i = 1; i < 9; i++)
+        {
+            _cardQueue[i].InitCardInfo(i - 1);
         }
     }
 
     public void ScrollUp()
     {
+        if (_cardQueue[0].data == null)
+        {
+            return;
+        }
         CardUI m_temp = _cardQueue[_cardQueue.Count - 1];
         _cardQueue.RemoveAt(_cardQueue.Count - 1);
+        m_temp.InitCardInfo(_cardQueue[0].IndexOfInfo.Value - 1);
         _cardQueue.Insert(0, m_temp);
+
 
         for (int i = 0; i < _cardQueue.Count; i++)
         {
@@ -92,12 +103,19 @@ public class ScrollView3dUI : MonoBehaviour
                 _cardQueue[i].transform.SetAsFirstSibling();
             }
         }
+        ChangeAlpha();
+
     }
     public void ScrollDown()
     {
-
+        if (_cardQueue[2].data == null)
+        {
+            return;
+        }
         CardUI m_temp = _cardQueue[0];
         _cardQueue.RemoveAt(0);
+        m_temp.InitCardInfo(_cardQueue[_cardQueue.Count - 1].IndexOfInfo.Value + 1);
+
         _cardQueue.Add(m_temp);
         for (int i = 0; i < _cardQueue.Count; i++)
         {
@@ -114,5 +132,25 @@ public class ScrollView3dUI : MonoBehaviour
                 _cardQueue[i].transform.SetAsFirstSibling();
             }
         }
+        ChangeAlpha();
+
     }
+
+    void ChangeAlpha()
+    {
+        for (int i = 1; i < _cardQueue.Count; i++)
+        {
+            if (_cardQueue[i].gameObject.activeSelf)
+            {
+                Color _color;
+                _color = _cardQueue[i].bg.color; _color.a = 1 - (i - 1) * 0.15f;_cardQueue[i].bg.color = _color;
+                _color = _cardQueue[i].logo.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].logo.color = _color;
+                _color = _cardQueue[i].distance.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].distance.color = _color;
+                _color = _cardQueue[i].hasSee.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].hasSee.color = _color;
+                _color = _cardQueue[i].pay.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].pay.color = _color;
+                _color = _cardQueue[i].nameOfGym.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].nameOfGym.color = _color;
+            }
+        }
+    }
+
 }
