@@ -33,7 +33,7 @@ public class NetSystem : MonoBehaviour
             JsonData m_jd = JsonMapper.ToObject(www.text);
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
-                AppDatas.InitJsonConfig(m_jd["data"].ToJson());
+                AppDatas.InitJsonConfig(m_jd["data"]);
             }
             else
             {

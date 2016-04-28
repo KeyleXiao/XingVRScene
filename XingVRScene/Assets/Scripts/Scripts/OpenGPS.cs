@@ -57,6 +57,7 @@ public class OpenGPS : MonoBehaviour
              
 #endif
         NetSystem.instance.GetAllData();
+        NetSystem.instance.GetJsonConfig();
         float i = 0;
         while (i < 1)
         {

@@ -40,7 +40,6 @@ public class CardUI : MonoBehaviour
         if (_indexOfInfo >= 0 && _indexOfInfo < AppDatas.JsonDataList.Count)
         {
             _data = AppDatas.JsonDataList[_indexOfInfo.Value];
-            Debug.Log(_data.ToJson());
             string _strDistance = _data["StudioData"]["StudioInfo"]["Address"]["Coordinate"]["distance"].ToJson();
             distance.text = (float.Parse(_strDistance) / 1000f).ToString("F1") + "km";
             hasSee.text = (string)_data["StudioData"]["StudioInfo"]["Visit"];

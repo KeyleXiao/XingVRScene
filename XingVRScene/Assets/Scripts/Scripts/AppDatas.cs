@@ -37,32 +37,37 @@ public class AppDatas
     static JsonData _jsondataList;
 
 
-    public static void InitJsonConfig(string strData)
+    public static void InitJsonConfig(JsonData Data)
     {
-        try
+        //try
         {
+
             _JsonConfig = new Dictionary<string, string[]>();
-
-            JsonData m_JsonData = LitJson.JsonMapper.ToObject(strData);
-            foreach (var m_key in m_JsonData.Keys)
+            string[] _type = new string[] { "格斗类", "大球类", "舞蹈类", "小球类", "健身类", "儿童类", "其他类" };
+            for (int i = 0; i < Data.Count; i++)
             {
-
-                //string[] m_strArrayNames = LitJson.JsonMapper.ToObject<string[]>(m_JsonData[m_key].ToJson());
-                //JsonConfig.Add(m_key, m_strArrayNames);
-                string[] m_strArrayNames = new string[(int)m_JsonData[m_key]["Length"]];
-                
-                for (int i = 1; i <= m_strArrayNames.Length; i++)
+                string[] m_strArrayNames = new string[Data[i]["type" + i.ToString()].Count];
+                for (int j = 0; j < Data[i]["type" + i.ToString()].Count; j++)
                 {
-                    m_strArrayNames[i - 1] = (string)m_JsonData[m_key]["sub" + i.ToString()]["Name"];
+                    m_strArrayNames[j] = ((string)Data[i]["type" + i.ToString()][j]["sub" + j.ToString()]["Name"]).Trim();
                 }
-                JsonConfig.Add((string)m_JsonData[m_key]["Name"], m_strArrayNames);
+                JsonConfig.Add(_type[i], m_strArrayNames);
             }
+            //foreach (var item in JsonConfig)
+            //{
+            //    foreach (var v in item.Value)
+            //    {
+            //        Debug.Log(item.Key + " " + v);
+            //    }
+            //}
+            
         }
-        catch(System.Exception ex)
-        {
-            Error.instance.ThrowError(ex.Message, () => Application.Quit());
-            Debug.Log(ex.Message);
-        }
+        //catch (System.Exception ex)
+        //{
+        //    Debug.Log(ex.Message);
+        //    Error.instance.ThrowError(ex.Message, () => Application.Quit());
+        //    Debug.Log(ex.Message);
+        //}
     }
 
     public static void InitJsonDataList(string strData)
