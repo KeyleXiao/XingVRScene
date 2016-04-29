@@ -64,6 +64,8 @@ public class NetSystem : MonoBehaviour
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
                 AppDatas.InitJsonDataList(m_jd["data"].ToJson());
+                ScrollView3dUI.instance.Init3DUI();
+
             }
             else
             {
@@ -99,6 +101,7 @@ public class NetSystem : MonoBehaviour
 #elif UNITY_IOS || UNITY_ANDROID
             AppDatas.InitJsonDataList(m_jd["data"].ToJson());
 #endif
+                ScrollView3dUI.instance.Init3DUI();
             }
             else
             {

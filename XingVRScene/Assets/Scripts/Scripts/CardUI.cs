@@ -44,7 +44,7 @@ public class CardUI : MonoBehaviour
             distance.text = (float.Parse(_strDistance) / 1000f).ToString("F1") + "km";
             hasSee.text = (string)_data["StudioData"]["StudioInfo"]["Visit"];
             pay.text = (string)_data["StudioData"]["StudioInfo"]["Buy"];
-            nameOfGym.text = (string)_data["StudioData"]["StudioName"] + IndexOfInfo.Value;
+            nameOfGym.text = (string)_data["StudioData"]["StudioName"];
 #if UNITY_EDITOR
             StartCoroutine(DownloadLogo("http://www.0739i.com.cn/data/attachment/portal/201603/09/120158ksjocrjsoohrmhtg.jpg"));
 #elif UNITY_IOS || UNITY_ANDROID
@@ -73,11 +73,16 @@ public class CardUI : MonoBehaviour
 
     IEnumerator DownloadLogo(string __url)
     {
+        logo.gameObject.SetActive(false);
+    //    float a = logo.color.a;
+    //    logo.color = new Color(1, 1, 1, 0);
         WWW www = new WWW(__url);
         yield return www;
         if (string.IsNullOrEmpty(www.error))
         {
             logo.sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0.5f, .05f));
+            logo.gameObject.SetActive(true);
+
         }
         else
         {

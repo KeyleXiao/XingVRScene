@@ -9,7 +9,7 @@ public class TypeGroup : MonoBehaviour {
     public int? selectedIndex = null;
     public float movedDistance;
     public bool isMoving = false;
-    float _sizeOfSearchUI = 40;
+    float _sizeOfSearchUI = 100;
     // Use this for initialization
     void Awake ()
     {

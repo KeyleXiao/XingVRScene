@@ -9,6 +9,7 @@ public class ScrollView3dUI : MonoBehaviour
 
     public RectTransform cardUIContainer;
     public RectTransform cardPosOfEnd;
+    public GameObject touchRange;
     public List<RectTransform> positionList = new List<RectTransform>();
 
     public List<CardUI> _cardQueue = new List<CardUI>();
@@ -20,20 +21,26 @@ public class ScrollView3dUI : MonoBehaviour
     {
         instance = this;
         InitialCardPosition();
-        InitailCardList();
-        ChangeAlpha();
+        
 
     }
 
 
     public void Init3DUI()
     {
-
+        InitailCardList();
+        ChangeAlpha();
+        touchRange.gameObject.SetActive(true);
     }
 
     public void Close3DUI()
     {
-
+        foreach (var item in _cardQueue)
+        {
+            Destroy(item.gameObject);
+        }
+        _cardQueue.Clear();
+        touchRange.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -145,6 +152,8 @@ public class ScrollView3dUI : MonoBehaviour
                 Color _color;
                 _color = _cardQueue[i].bg.color; _color.a = 1 - (i - 1) * 0.15f;_cardQueue[i].bg.color = _color;
                 _color = _cardQueue[i].logo.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].logo.color = _color;
+                //_cardQueue[i].logo.gameObject.SetActive(false);
+
                 _color = _cardQueue[i].distance.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].distance.color = _color;
                 _color = _cardQueue[i].hasSee.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].hasSee.color = _color;
                 _color = _cardQueue[i].pay.color; _color.a = 1 - (i - 1) * 0.15f; _cardQueue[i].pay.color = _color;

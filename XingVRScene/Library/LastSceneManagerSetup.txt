@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/SelectStageVR.unity
+- path: Assets/Scene/StartLoading.unity
   isLoaded: 1
   isActive: 1
