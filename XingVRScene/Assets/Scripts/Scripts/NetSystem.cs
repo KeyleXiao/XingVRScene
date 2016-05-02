@@ -96,11 +96,11 @@ public class NetSystem : MonoBehaviour
             JsonData m_jd = JsonMapper.ToObject(m_www.text);
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
-#if UNITY_EDITOR
-                AppDatas.InitJsonDataList(System.IO.File.ReadAllText(Application.dataPath + "/1.txt"));
-#elif UNITY_IOS || UNITY_ANDROID
+//#if UNITY_EDITOR
+//                AppDatas.InitJsonDataList(System.IO.File.ReadAllText(Application.dataPath + "/1.txt"));
+//#elif UNITY_IOS || UNITY_ANDROID
             AppDatas.InitJsonDataList(m_jd["data"].ToJson());
-#endif
+//#endif
                 ScrollView3dUI.instance.Init3DUI();
             }
             else

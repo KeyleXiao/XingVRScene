@@ -40,11 +40,12 @@ public class CardUI : MonoBehaviour
         if (_indexOfInfo >= 0 && _indexOfInfo < AppDatas.JsonDataList.Count)
         {
             _data = AppDatas.JsonDataList[_indexOfInfo.Value];
-            string _strDistance = _data["StudioData"]["StudioInfo"]["Address"]["Coordinate"]["distance"].ToJson();
+            //Debug.Log(_data.ToJson());
+            string _strDistance = _data["StudioInfo"]["Address"]["Coordinate"]["distance"].ToJson();
             distance.text = (float.Parse(_strDistance) / 1000f).ToString("F1") + "km";
-            hasSee.text = (string)_data["StudioData"]["StudioInfo"]["Visit"];
-            pay.text = (string)_data["StudioData"]["StudioInfo"]["Buy"];
-            nameOfGym.text = (string)_data["StudioData"]["StudioName"];
+            hasSee.text = (string)_data["StudioInfo"]["Visit"];
+            pay.text = (string)_data["StudioInfo"]["Buy"];
+            nameOfGym.text = (string)_data["StudioName"];
 #if UNITY_EDITOR
             StartCoroutine(DownloadLogo("http://www.0739i.com.cn/data/attachment/portal/201603/09/120158ksjocrjsoohrmhtg.jpg"));
 #elif UNITY_IOS || UNITY_ANDROID
