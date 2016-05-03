@@ -60,7 +60,7 @@ public class OpenGPS : MonoBehaviour
         float i = 0;
         while (i < 1)
         {
-            i += 50 * Time.deltaTime;
+            i += 0.2f * Time.deltaTime;
             Loading.instance.SetLoadingValue(i);
             yield return null;
         }
