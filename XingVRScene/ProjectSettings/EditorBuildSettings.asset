@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/SelectStageVR.unity
   - enabled: 1
+    path: Assets/Scene/SelectStageVR 1.unity
+  - enabled: 1
     path: Assets/Scene/VRScene.unity

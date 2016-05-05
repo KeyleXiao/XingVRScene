@@ -46,11 +46,11 @@ public class CardUI : MonoBehaviour
             hasSee.text = (string)_data["StudioInfo"]["Visit"];
             pay.text = (string)_data["StudioInfo"]["Buy"];
             nameOfGym.text = (string)_data["StudioName"];
-#if UNITY_EDITOR
-            StartCoroutine(DownloadLogo("http://www.0739i.com.cn/data/attachment/portal/201603/09/120158ksjocrjsoohrmhtg.jpg"));
-#elif UNITY_IOS || UNITY_ANDROID
-            StartCoroutine(DownloadLogo((string)_data["StudioData"]["StudioLogo"]));
-#endif
+//#if UNITY_EDITOR
+            //StartCoroutine(DownloadLogo("http://www.0739i.com.cn/data/attachment/portal/201603/09/120158ksjocrjsoohrmhtg.jpg"));
+//#elif UNITY_IOS || UNITY_ANDROID
+            StartCoroutine(DownloadLogo((string)_data["StudioLogo"]));
+//#endif
 
         }
         else

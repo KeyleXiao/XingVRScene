@@ -27,6 +27,7 @@ public class SubClass : MonoBehaviour {
 
         //以上初始化ui大小 适配位置
         //添加按钮事件
+        
         GetComponentInChildren<Button>().onClick.AddListener(() => TypeGroup.instance.OnOpenButtonDown(indexInGroup, height, m_rectTransform.gameObject));
 
 
