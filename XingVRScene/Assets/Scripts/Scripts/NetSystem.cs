@@ -19,12 +19,12 @@ public class NetSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 	}
 	
-    public void GetJsonConfig()
+    public void GetJsonConfig(IEnumerator func)
     {
-        StartCoroutine(DownloadJsonConfig());
+        StartCoroutine(DownloadJsonConfig(func));
     }
 
-    IEnumerator DownloadJsonConfig()
+    IEnumerator DownloadJsonConfig(IEnumerator func)
     {
         WWW www = new WWW(_jsonConfigUrl);
         yield return www;
@@ -34,15 +34,16 @@ public class NetSystem : MonoBehaviour
             if ((string)m_jd[_jsonStatusKeyName] == _jsonOkCode)
             {
                 AppDatas.InitJsonConfig(m_jd["data"]);
+                yield return func;
             }
             else
             {
-                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetJsonConfig());
+                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetJsonConfig(func));
             }
         }
         else
         {
-            Error.instance.ThrowError("网络错误" + www.error, () => GetJsonConfig());
+            Error.instance.ThrowError("网络错误" + www.error, () => GetJsonConfig(func));
         }
     }
 

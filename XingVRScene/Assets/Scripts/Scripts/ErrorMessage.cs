@@ -14,4 +14,9 @@ public class ErrorMessage : MonoBehaviour {
         button.onClick.AddListener(func);
     }
 
+    public void CloseMessage()
+    {
+        Destroy(gameObject);
+    }
+
 }

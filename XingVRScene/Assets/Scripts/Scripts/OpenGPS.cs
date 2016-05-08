@@ -56,15 +56,21 @@ public class OpenGPS : MonoBehaviour
         }
              
 #endif
-        NetSystem.instance.GetJsonConfig();
+        NetSystem.instance.GetJsonConfig(NextScene());
+        
+
+    }
+
+    IEnumerator NextScene()
+    {
         float i = 0;
         while (i < 1)
         {
+            Debug.Log(i);
             i += 0.2f * Time.deltaTime;
             Loading.instance.SetLoadingValue(i);
             yield return null;
         }
-
     }
 
 
