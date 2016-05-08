@@ -11,7 +11,7 @@ public class SearchButton : MonoBehaviour {
 	void Start ()
     {
         instance = this;
-        gridUI.spacing = new Vector2((Screen.width - 88) / 2, 0);
+        gridUI.spacing = new Vector2((GetComponent<RectTransform>().GetCanvas().GetComponent<RectTransform>().sizeDelta.x - 88) / 2, 0);
         AllRange();
 	}
 
@@ -42,15 +42,17 @@ public class SearchButton : MonoBehaviour {
         NetSystem.instance.GetAllData();
         SearchButton.instance.CloseSearch();
         smallRangeUI.color = Color.white;
-        TypeGroup.instance.ClosePanel();
-        TypeGroup.instance.gameObject.SetActive(false);
+        //TypeGroup.instance.gameObject.SetActive(false);
 
     }
     public void CloseSearch()
     {
-        gridUI.gameObject.SetActive(false);
-        sesrchButtonUI.gameObject.SetActive(true);
-        TypeGroup.instance.ClosePanel();
-        TypeGroup.instance.gameObject.SetActive(false);
+        
+        TypeGroup.instance.ClosePanel(()=>
+                                        {
+                                            gridUI.gameObject.SetActive(false);
+                                            sesrchButtonUI.gameObject.SetActive(true);
+                                        });
+        //TypeGroup.instance.gameObject.SetActive(false);
     }
 }

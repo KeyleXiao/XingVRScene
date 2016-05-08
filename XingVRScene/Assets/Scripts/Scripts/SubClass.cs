@@ -9,6 +9,7 @@ public class SubClass : MonoBehaviour {
     string typeName;
     static GameObject buttonPrefabs;
 	// Use this for initialization
+
 	void Start ()
     {
         typeName = transform.FindChild("Icon/BigTypeName").GetComponent<Text>().text;
@@ -23,17 +24,18 @@ public class SubClass : MonoBehaviour {
         m_rectTransform.anchoredPosition = new Vector2(m_rectTransform.sizeDelta.x / 2, -m_rectTransform.sizeDelta.y / 2);
 
         GridLayoutGroup m_grid = m_rectTransform.GetComponent<GridLayoutGroup>();
-        m_grid.cellSize = new Vector2(m_rectTransform.sizeDelta.x / 2, 40);
+        m_grid.cellSize = new Vector2(m_rectTransform.GetCanvas().GetComponent<RectTransform>().sizeDelta.x / 2, 40);
 
         //以上初始化ui大小 适配位置
         //添加按钮事件
         
         GetComponentInChildren<Button>().onClick.AddListener(() => TypeGroup.instance.OnOpenButtonDown(indexInGroup, height, m_rectTransform.gameObject));
 
-
+        
         foreach (var item in AppDatas.JsonConfig[typeName])
         {
             GameObject button = Instantiate(buttonPrefabs) as GameObject;
+            button.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             Text text = button.GetComponentInChildren<Text>();
             text.text = item;
             button.transform.parent = m_rectTransform.transform;
@@ -44,10 +46,11 @@ public class SubClass : MonoBehaviour {
                                                                         TypeGroup.instance.OnOpenButtonDown(indexInGroup, height, m_rectTransform.gameObject);
                                                                     }
                                                                 );
-            //button.GetComponent<Button>().onClick.AddListener(() => Debug.Log(text.text));
 
         }
+
         m_rectTransform.gameObject.SetActive(false);
+        
     }
 	
 

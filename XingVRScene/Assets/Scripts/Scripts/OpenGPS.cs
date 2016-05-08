@@ -4,60 +4,30 @@ using System.Collections;
 public class OpenGPS : MonoBehaviour
 {
     public static float lat, lng;
+
+    bool gpsIsOk, WifiIsOk;
     IEnumerator Start()
     {
         yield return null;
-#if  UNITY_EDITOR
+        gpsIsOk = WifiIsOk = false;
+#if UNITY_EDITOR
 
         lat = 50;
         lng = 50;
+
+        gpsIsOk = WifiIsOk = true;
+
+
 #elif UNITY_IOS || UNITY_ANDROID
-           if (Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            Error.instance.ThrowError("无法连接到网络，请打开网络连接", () => Application.Quit());
-        }
-        else if (!Input.location.isEnabledByUser)
-        {
-            Error.instance.ThrowError("请在设置中打开GPS", () => Application.Quit());
-        }
-        else
-        {
-
-            // Start service before querying location
-            Input.location.Start();
-
-            // Wait until service initializes
-            int maxWait = 20;
-            while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
-            {
-                yield return new WaitForSeconds(1);
-                maxWait--;
-            }
-
-            // Service didn't initialize in 20 seconds
-            if (maxWait < 1)
-            {
-                Error.instance.ThrowError("GPS time out", () => Application.Quit());
-                yield break;
-            }
-
-            // Connection has failed
-            if (Input.location.status == LocationServiceStatus.Failed)
-            {
-                Error.instance.ThrowError("Unable to determine device location", () => Application.Quit());
-                yield break;
-            }
-            else
-            {
-                lat = Input.location.lastData.latitude;
-                lng = Input.location.lastData.longitude;
-            }
-            Input.location.Stop();   
-        }
-             
+        TestWifi();
+        TestGPS();
 #endif
+        yield return new WaitUntil(() =>
+                                    {
+                                        return gpsIsOk && WifiIsOk;
+                                    });
         NetSystem.instance.GetJsonConfig(NextScene());
-        
+
 
     }
 
@@ -66,12 +36,106 @@ public class OpenGPS : MonoBehaviour
         float i = 0;
         while (i < 1)
         {
-            Debug.Log(i);
             i += 0.2f * Time.deltaTime;
             Loading.instance.SetLoadingValue(i);
             yield return null;
         }
     }
 
+    void TestWifi()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show("网络错误", "请在设置中打开网络连接", PlatformDialog.Type.OKCancel,
+                                    () =>
+                                    {
+                                        TestWifi();
+                                    },
+                                    () =>
+                                    {
+                                        Application.Quit();
+                                    });
+        }
+        else
+        {
+            WifiIsOk = true;
+        }
+    }
+    void TestGPS()
+    {
+        StartCoroutine(StartTestGPS());
+    }
+    IEnumerator StartTestGPS()
+    {
+        if (!Input.location.isEnabledByUser)
+        {
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show("GPS错误", "请在设置中打开GPS", PlatformDialog.Type.OKCancel,
+                                    () =>
+                                    {
+                                        TestGPS();
+                                    },
+                                    () =>
+                                    {
+                                        Application.Quit();
+                                    });
+        }
+        else
+        {
+            
+            Input.location.Start();
+            
+            int maxWait = 20;
+            while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+            {
+                yield return new WaitForSeconds(1);
+                maxWait--;
+            }
+            
+            if (maxWait < 1)
+            {
+                Input.location.Stop();
 
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show("GPS错误", "GPS time out", PlatformDialog.Type.OKCancel,
+                                        () =>
+                                        {
+                                            TestGPS();
+                                        },
+                                        () =>
+                                        {
+                                            Application.Quit();
+                                        });
+                
+                yield break;
+            }
+
+            // Connection has failed
+            if (Input.location.status == LocationServiceStatus.Failed)
+            {
+                Input.location.Stop();
+
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show("GPS错误", "Unable to determine device location", PlatformDialog.Type.OKCancel,
+                                        () =>
+                                        {
+                                            TestGPS();
+                                        },
+                                        () =>
+                                        {
+                                            Application.Quit();
+                                        });
+                yield break;
+            }
+            else
+            {
+                lat = Input.location.lastData.latitude;
+                lng = Input.location.lastData.longitude;
+                gpsIsOk = true;
+                Input.location.Stop();
+
+            }
+        }
+    }
 }

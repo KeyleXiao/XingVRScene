@@ -87,7 +87,15 @@ public class CardUI : MonoBehaviour
         }
         else
         {
-            Error.instance.ThrowError("网络错误" + www.error, () => StartCoroutine(DownloadLogo(__url)));
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show(
+                "网络错误",
+                www.error,
+                PlatformDialog.Type.OKCancel,
+                () => StartCoroutine(DownloadLogo(__url)),
+                () => Application.Quit()
+            );
+            //Error.instance.ThrowError("网络错误" + www.error, () => StartCoroutine(DownloadLogo(__url)));
         }
     }
 }

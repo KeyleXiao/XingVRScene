@@ -28,7 +28,9 @@ public class AppDatas
             }
             else
             {
-                Error.instance.ThrowError("没有选择数据", () => Application.Quit());
+                PlatformDialog.SetButtonLabel("OK");
+                PlatformDialog.Show("错误", "没有选择数据", PlatformDialog.Type.SubmitOnly, () => Application.Quit(), null);
+                //Error.instance.ThrowError("没有选择数据", () => Application.Quit());
                 return null;
             }
         }
@@ -78,7 +80,8 @@ public class AppDatas
         }
         catch (System.Exception ex)
         {
-            Error.instance.ThrowError(ex.Message, () => Application.Quit());
+            PlatformDialog.SetButtonLabel("OK");
+            PlatformDialog.Show("错误", ex.Message, PlatformDialog.Type.SubmitOnly, () => Application.Quit(), null);
         }
     }
 }

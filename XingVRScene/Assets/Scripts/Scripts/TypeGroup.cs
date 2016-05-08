@@ -27,11 +27,14 @@ public class TypeGroup : MonoBehaviour {
         thisRectTransform.DOAnchorPos(new Vector2(thisRectTransform.anchoredPosition.x,
                                                     thisRectTransform.sizeDelta.y / 2 + _sizeOfSearchUI), 0.5f);
     }
-    public void ClosePanel()
+    public void ClosePanel(System.Action func)
     {
         RectTransform thisRectTransform = GetComponent<RectTransform>();
         thisRectTransform.DOAnchorPos(new Vector2(thisRectTransform.anchoredPosition.x,
-                                                    -thisRectTransform.sizeDelta.y / 2), 0.5f);
+                                                    -thisRectTransform.sizeDelta.y / 2), 0.5f).OnComplete(() => func());
+
+        if (selectedIndex.HasValue)
+            OnOpenButtonDown(selectedIndex.Value, movedDistance, subs[selectedIndex.Value].FindChild("SubClass").gameObject);
     }
     public void InitPosition()
     {
@@ -55,6 +58,7 @@ public class TypeGroup : MonoBehaviour {
         if (m_typeGroup.selectedIndex.Value != __indexInGroup)
         {
             m_typeGroup.movedDistance = __height;
+            m_typeGroup.subs[selectedIndex.Value].GetComponent<OnButtonDown>().Close();
             m_typeGroup.selectedIndex = __indexInGroup;
             m_typeGroup.subs[selectedIndex.Value].GetComponent<OnButtonDown>().Open();
 
@@ -84,7 +88,6 @@ public class TypeGroup : MonoBehaviour {
             float m_movedDis = m_typeGroup.movedDistance;
             if (m_typeGroup.selectedIndex.Value == __indexInGroup)          //当同一个按钮时关闭
             {
-                m_typeGroup.subs[selectedIndex.Value].GetComponent<OnButtonDown>().Close();
                 int _uiComplete = 0;
                 for (int i = 0; i <= m_typeGroup.selectedIndex.Value; i++)
                 {
@@ -101,6 +104,7 @@ public class TypeGroup : MonoBehaviour {
                 if (m_typeGroup.selectedIndex.Value == __indexInGroup)
                 {
                     m_typeGroup.movedDistance = 0;
+                    m_typeGroup.subs[selectedIndex.Value].GetComponent<OnButtonDown>().Close();
                     if (m_typeGroup.selectedIndex != null)
                         m_typeGroup.selectedIndex = null;
                     m_typeGroup.isMoving = false;
@@ -109,8 +113,6 @@ public class TypeGroup : MonoBehaviour {
             }
             else                                                    //不是同一个按钮时 先关闭在打开
             {
-                m_typeGroup.subs[selectedIndex.Value].GetComponent<OnButtonDown>().Close();
-
                 int _uiComplete = 0;
 
                 for (int i = 0; i <= m_typeGroup.selectedIndex.Value; i++)
@@ -120,7 +122,7 @@ public class TypeGroup : MonoBehaviour {
                                                     0.5f).OnComplete(() => _uiComplete++);
                 }
                 yield return new WaitUntil(() => _uiComplete == m_typeGroup.selectedIndex.Value + 1);
-                Debug.Log("complete");
+                //Debug.Log("complete");
                 yield return OnClose(__indexInGroup, __height, __sub);
             }
 

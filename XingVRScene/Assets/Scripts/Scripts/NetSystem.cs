@@ -38,12 +38,28 @@ public class NetSystem : MonoBehaviour
             }
             else
             {
-                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetJsonConfig(func));
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show(
+                    "网络错误",
+                    (string)m_jd[_jsonStatusKeyName],
+                    PlatformDialog.Type.OKCancel,
+                    () => GetJsonConfig(func),
+                    () => Application.Quit()
+                );
+                //Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetJsonConfig(func));
             }
         }
         else
         {
-            Error.instance.ThrowError("网络错误" + www.error, () => GetJsonConfig(func));
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show(
+                "网络错误",
+                www.error,
+                PlatformDialog.Type.OKCancel,
+                () => GetJsonConfig(func),
+                () => Application.Quit()
+            );
+            //Error.instance.ThrowError("网络错误" + www.error, () => GetJsonConfig(func));
         }
     }
 
@@ -70,13 +86,29 @@ public class NetSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log((string)m_jd[_jsonStatusKeyName]);
-                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetSubData(__type));
+                //Debug.Log((string)m_jd[_jsonStatusKeyName]);
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show(
+                    "网络错误",
+                    (string)m_jd[_jsonStatusKeyName],
+                    PlatformDialog.Type.OKCancel,
+                    () => GetSubData(__type),
+                    () => Application.Quit()
+                );
+                //Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetSubData(__type));
             }
         }
         else
         {
-            Error.instance.ThrowError("网络错误" + m_www.error, () => GetSubData(__type));
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show(
+                "网络错误",
+                m_www.error,
+                PlatformDialog.Type.OKCancel,
+                () => GetSubData(__type),
+                () => Application.Quit()
+            );
+            //Error.instance.ThrowError("网络错误" + m_www.error, () => GetSubData(__type));
         }
     }
 
@@ -106,12 +138,28 @@ public class NetSystem : MonoBehaviour
             }
             else
             {
-                Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetAllData());
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show(
+                    "网络错误",
+                    (string)m_jd[_jsonStatusKeyName],
+                    PlatformDialog.Type.OKCancel,
+                    () => GetAllData(),
+                    () => Application.Quit()
+                );
+                //Error.instance.ThrowError("网络错误" + (string)m_jd[_jsonStatusKeyName], () => GetAllData());
             }
         }
         else
         {
-            Error.instance.ThrowError("网络错误" + m_www.error, () => GetAllData());
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show(
+                "网络错误",
+                m_www.error,
+                PlatformDialog.Type.OKCancel,
+                () => GetAllData(),
+                () => Application.Quit()
+            );
+            //Error.instance.ThrowError("网络错误" + m_www.error, () => GetAllData());
         }
     }
 }

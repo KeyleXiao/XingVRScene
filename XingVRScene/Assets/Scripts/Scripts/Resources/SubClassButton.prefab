@@ -28,6 +28,7 @@ GameObject:
   - 222: {fileID: 22207352}
   - 114: {fileID: 11494028}
   - 114: {fileID: 11461930}
+  - 114: {fileID: 11437256}
   m_Layer: 5
   m_Name: SubClassButton
   m_TagString: Untagged
@@ -35,6 +36,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11437256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6944145ab4bd13c40b5df1b0ef8f322a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11461930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,8 +190,8 @@ RectTransform:
   - {fileID: 22420014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 80, y: -137.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
