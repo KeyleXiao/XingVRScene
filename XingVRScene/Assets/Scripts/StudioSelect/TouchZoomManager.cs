@@ -28,6 +28,8 @@ public class TouchZoomManager : MonoBehaviour,IDragHandler,IPointerDownHandler,I
         if (Mathf.Abs(initMousePositionX - Input.mousePosition.x) < 1.0f)
         {
             AppDatas.IndexOfSelected = ScrollView3dUI.instance._cardQueue[1].IndexOfInfo;
+            Debug.Log(AppDatas.DataSelected.ToJson());
+            NetSystem.instance.AddVisit((string)AppDatas.DataSelected["StudioName"]);
             Debug.Log(AppDatas.IndexOfSelected);
             return;
         }

@@ -9,6 +9,7 @@ public class NetSystem : MonoBehaviour
     string _jsonConfigUrl = "http://139.196.41.254/configApi/configapi.php";
     string _allDataUrl = "http://139.196.41.254/configApi/nearpos.php";
     string _subDataUrl = "http://139.196.41.254/configApi/bigapi.php";
+    string _plusVisitTimes = "http://139.196.41.254/configApi/addvisit.php";
 
     string _jsonStatusKeyName = "code";
     string _jsonOkCode = "200";
@@ -160,6 +161,49 @@ public class NetSystem : MonoBehaviour
                 () => Application.Quit()
             );
             //Error.instance.ThrowError("网络错误" + m_www.error, () => GetAllData());
+        }
+    }
+
+    public void AddVisit(string __name)
+    {
+        StartCoroutine(AddVisitTimes(__name));
+    }
+    IEnumerator AddVisitTimes(string __name)
+    {
+        WWWForm m_form = new WWWForm();
+        m_form.AddField("name", __name);
+        WWW m_www = new WWW(_plusVisitTimes, m_form);
+        yield return m_www;
+        if (string.IsNullOrEmpty(m_www.error))
+        {
+            JsonData m_jd = JsonMapper.ToObject(m_www.text);
+            //Debug.Log(m_www.text);
+            if ((int)m_jd[_jsonStatusKeyName] == 200)
+            {
+                yield break;
+            }
+            else
+            {
+                PlatformDialog.SetButtonLabel("刷新", "退出");
+                PlatformDialog.Show(
+                    "网络错误",
+                    (string)m_jd[_jsonStatusKeyName],
+                    PlatformDialog.Type.OKCancel,
+                    () => AddVisit(__name),
+                    () => Application.Quit()
+                );
+            }
+        }
+        else
+        {
+            PlatformDialog.SetButtonLabel("刷新", "退出");
+            PlatformDialog.Show(
+                "网络错误",
+                m_www.error,
+                PlatformDialog.Type.OKCancel,
+                () => AddVisit(__name),
+                () => Application.Quit()
+            );
         }
     }
 }

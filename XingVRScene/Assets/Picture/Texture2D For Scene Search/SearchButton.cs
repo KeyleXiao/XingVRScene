@@ -11,7 +11,7 @@ public class SearchButton : MonoBehaviour {
 	void Start ()
     {
         instance = this;
-        gridUI.spacing = new Vector2((GetComponent<RectTransform>().GetCanvas().GetComponent<RectTransform>().sizeDelta.x - 88) / 2, 0);
+        gridUI.spacing = new Vector2((GetComponent<RectTransform>().GetCanvas().GetComponent<RectTransform>().sizeDelta.x - 176) / 2, 0);
         AllRange();
 	}
 

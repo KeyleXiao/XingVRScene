@@ -17,14 +17,14 @@ public class SubClass : MonoBehaviour {
         int m_length = AppDatas.JsonConfig[typeName].Length;
         int m_h = m_length / 2;
         m_h = m_length % 2 == 1 ? m_h + 1 : m_h;
-        height = m_h * 40;
+        height = m_h * 60;
         RectTransform m_rectTransform = transform.FindChild("SubClass").GetComponent<RectTransform>();
         m_rectTransform.sizeDelta = new Vector2(m_rectTransform.GetCanvas().GetComponent<RectTransform>().sizeDelta.x, height);
         
         m_rectTransform.anchoredPosition = new Vector2(m_rectTransform.sizeDelta.x / 2, -m_rectTransform.sizeDelta.y / 2);
 
         GridLayoutGroup m_grid = m_rectTransform.GetComponent<GridLayoutGroup>();
-        m_grid.cellSize = new Vector2(m_rectTransform.GetCanvas().GetComponent<RectTransform>().sizeDelta.x / 2, 40);
+        m_grid.cellSize = new Vector2(m_rectTransform.GetCanvas().GetComponent<RectTransform>().sizeDelta.x / 2, 60);
 
         //以上初始化ui大小 适配位置
         //添加按钮事件

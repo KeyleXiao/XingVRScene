@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: a9e20a094f34d4d4a99a8fd7ff1db0ae, type: 3}
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHATEST_ON _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: TransparentCutout
   m_SavedProperties:
@@ -116,34 +116,6 @@ Material:
         second: 0.02
       data:
         first:
-          name: _Stencil
-        second: 0
-      data:
-        first:
-          name: _StencilComp
-        second: 8
-      data:
-        first:
-          name: _StencilOp
-        second: 0
-      data:
-        first:
-          name: _StencilReadMask
-        second: 255
-      data:
-        first:
-          name: _StencilWriteMask
-        second: 255
-      data:
-        first:
-          name: _Size
-        second: 5
-      data:
-        first:
-          name: _Vibrancy
-        second: 1.56
-      data:
-        first:
           name: _ZWrite
         second: 1
       data:
@@ -176,16 +148,44 @@ Material:
         second: 0
       data:
         first:
+          name: _Stencil
+        second: 0
+      data:
+        first:
+          name: _StencilComp
+        second: 8
+      data:
+        first:
+          name: _StencilOp
+        second: 0
+      data:
+        first:
+          name: _StencilReadMask
+        second: 255
+      data:
+        first:
+          name: _StencilWriteMask
+        second: 255
+      data:
+        first:
           name: _ColorMask
         second: 15
       data:
         first:
-          name: _Strength
-        second: 0.2
-      data:
-        first:
           name: _UseUIAlphaClip
         second: 0
+      data:
+        first:
+          name: _Size
+        second: 5
+      data:
+        first:
+          name: _Vibrancy
+        second: 1.56
+      data:
+        first:
+          name: _Strength
+        second: 0.2
     m_Colors:
       data:
         first:
@@ -194,7 +194,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.19117647, g: 0.19117647, b: 0.19117647, a: 1}
       data:
         first:
           name: _TintColor
