@@ -791,6 +791,7 @@ MonoBehaviour:
   sesrchButtonUI: {fileID: 875524850}
   smallRangeUI: {fileID: 1852157902}
   AllRangeUI: {fileID: 1599205920}
+  BG: {fileID: 1771049969}
   gridUI: {fileID: 881614233}
 --- !u!1001 &1065314773
 Prefab:
@@ -988,6 +989,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434480, guid: 1013751e2c08549be8b9d135a1ad2473, type: 2}
       propertyPath: isAnimation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 141606, guid: 1013751e2c08549be8b9d135a1ad2473, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22410834, guid: 1013751e2c08549be8b9d135a1ad2473, type: 2}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -996,6 +1005,11 @@ Prefab:
 --- !u!1 &1332960323 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 139942, guid: 1013751e2c08549be8b9d135a1ad2473, type: 2}
+  m_PrefabInternal: {fileID: 1332960322}
+--- !u!224 &1332960324 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22430774, guid: 1013751e2c08549be8b9d135a1ad2473,
+    type: 2}
   m_PrefabInternal: {fileID: 1332960322}
 --- !u!1 &1344475881
 GameObject:
@@ -1176,6 +1190,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1517165814}
   m_RootOrder: 1
+--- !u!1 &1375508923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1375508924}
+  - 222: {fileID: 1375508926}
+  - 114: {fileID: 1375508925}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1375508924
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375508923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332960324}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1375508925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375508923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 532731f5e1b2540a5b5095b26fc09cce, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1375508926
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375508923}
 --- !u!1 &1446089128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1691,7 @@ Prefab:
       objectReference: {fileID: 1771049969}
     - target: {fileID: 11407194, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11407194, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1618,7 +1699,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11499984, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11499984, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1626,7 +1707,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11453368, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11453368, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1634,7 +1715,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11487506, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11487506, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1642,7 +1723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11421432, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11421432, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1650,7 +1731,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11459428, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11459428, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1658,7 +1739,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468958, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 18
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11468958, guid: c078dff1819b47148a1eed2bce5679d5, type: 2}
       propertyPath: m_FontData.m_MinSize
@@ -1945,6 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initMousePositionX: 0
   initMousePositionY: 0
+  loading: {fileID: 1332960323}
 --- !u!1 &2110923899
 GameObject:
   m_ObjectHideFlags: 0

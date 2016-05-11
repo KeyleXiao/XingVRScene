@@ -16,11 +16,11 @@ public class OnButtonDown : MonoBehaviour {
 
     void Awake()
     {
-        if (defaultimage == null)
-        {
-            Texture2D _tex = Resources.Load("jianshen") as Texture2D;
-            defaultimage = Sprite.Create(_tex, new Rect(0, 0, _tex.width, _tex.height), new Vector2(0.5f, 0.5f));
-        }
+        //if (defaultimage == null)
+        //{
+        //    Texture2D _tex = Resources.Load("jianshen") as Texture2D;
+        //    defaultimage = Sprite.Create(_tex, new Rect(0, 0, _tex.width, _tex.height), new Vector2(0.5f, 0.5f));
+        //}
     }
 
     public void Open()
@@ -36,6 +36,6 @@ public class OnButtonDown : MonoBehaviour {
         icon.sprite = iconBefore;
         background.color = colorBeforButtonDown;
         buttonAnim.SetBool("open", false);
-        BG.sprite = defaultimage;
+        //BG.sprite = defaultimage;
     }
 }

@@ -6,7 +6,7 @@ public class TouchZoomManager : MonoBehaviour,IDragHandler,IPointerDownHandler,I
 
 	public float initMousePositionX;
 	public float initMousePositionY;
-
+    public GameObject loading;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,6 +31,8 @@ public class TouchZoomManager : MonoBehaviour,IDragHandler,IPointerDownHandler,I
             Debug.Log(AppDatas.DataSelected.ToJson());
             NetSystem.instance.AddVisit((string)AppDatas.DataSelected["StudioName"]);
             Debug.Log(AppDatas.IndexOfSelected);
+            loading.SetActive(true);
+            StartCoroutine(NextScence());
             return;
         }
         if (initMousePositionX > Input.mousePosition.x)
@@ -45,5 +47,14 @@ public class TouchZoomManager : MonoBehaviour,IDragHandler,IPointerDownHandler,I
 
     }
 
-
+    IEnumerator NextScence()
+    {
+        float i = 0;
+        while (i < 1)
+        {
+            i += 0.5f * Time.deltaTime;
+            Loading.instance.SetLoadingValue(i);
+            yield return null;
+        }
+    }
 }

@@ -9,7 +9,7 @@ public class Loading : MonoBehaviour {
 	public bool isAnimation;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		instance = this;
 	}
 

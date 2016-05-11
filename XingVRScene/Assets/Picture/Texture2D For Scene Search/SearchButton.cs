@@ -4,12 +4,18 @@ using UnityEngine.UI;
 
 public class SearchButton : MonoBehaviour {
 
-    public Image sesrchButtonUI, smallRangeUI, AllRangeUI;
+    public Image sesrchButtonUI, smallRangeUI, AllRangeUI, BG;
     public GridLayoutGroup gridUI;
     public static SearchButton instance;
-	// Use this for initialization
-	void Start ()
+    Sprite defaultimage;
+    // Use this for initialization
+    void Start ()
     {
+        if (defaultimage == null)
+        {
+            Texture2D _tex = Resources.Load("jianshen") as Texture2D;
+            defaultimage = Sprite.Create(_tex, new Rect(0, 0, _tex.width, _tex.height), new Vector2(0.5f, 0.5f));
+        }
         instance = this;
         gridUI.spacing = new Vector2((GetComponent<RectTransform>().GetCanvas().GetComponent<RectTransform>().sizeDelta.x - 176) / 2, 0);
         AllRange();
@@ -27,7 +33,7 @@ public class SearchButton : MonoBehaviour {
         sesrchButtonUI.gameObject.SetActive(false);
         ScrollView3dUI.instance.Close3DUI();
         smallRangeUI.color = AllRangeUI.color = Color.white;
-
+        SmallRange();
     }
 
     public void SmallRange()
@@ -42,6 +48,7 @@ public class SearchButton : MonoBehaviour {
         NetSystem.instance.GetAllData();
         SearchButton.instance.CloseSearch();
         smallRangeUI.color = Color.white;
+        BG.sprite = defaultimage;
         //TypeGroup.instance.gameObject.SetActive(false);
 
     }
